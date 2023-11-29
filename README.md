@@ -23,3 +23,6 @@ Router to our app
 -install redux to our app
 -create store and slice
 -create buttonlist in maincontainer
+-create videocard 
+-fetch data from youtube data api & google api key
+-install react-router-dom 
