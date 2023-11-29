@@ -1,27 +1,28 @@
 import React from 'react';
-import Login from './Login';
-import Browse from './Browse';
-import { createBrowserRouter } from 'react-router-dom';
-import { RouterProvider } from 'react-router-dom';
+import SideBar from './SideBar';
+import MainContainer from './MainContainer';
+//   import Login from './Login';
+
+
+
 
 
 const Body = () => {
   
     
-        const appRouter=createBrowserRouter([
-        {
-            path:"/",
-            element:<Login />
-        },
-        {
-            path:"/browser",
-            element:<Browse />
-        }
-    ])
+      //   const appRouter=createBrowserRouter([
+      //   {
+      //        path:"/",
+      //       element:<Login />
+      //    },
+   
+      // ])
 
     return ( 
-       <div>
-       <RouterProvider router={appRouter} />
+       <div className='flex'>
+<SideBar />
+<MainContainer />
+        {/* <RouterProvider router={appRouter} />  */}
            </div>
   )
 }
