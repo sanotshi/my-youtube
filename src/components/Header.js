@@ -2,7 +2,6 @@ import React from "react";
 import { BELL_ICON, HIDDEN_MENU, LOGO } from "../utilities/constants";
 import { toggleMenu } from "../utilities/appSlice";
 import { useDispatch } from "react-redux";
-import { Login } from "@mui/icons-material";
 
 
 const Header = () => {
@@ -16,7 +15,7 @@ const Header = () => {
         <img
           onClick={() => toggleMenuHandler()}
           src={HIDDEN_MENU}
-          className="h-14 px-2  cursor-pointer"
+          className="h-12 px-2  cursor-pointer"
           alt="menu"
         />
         <img src={LOGO} alt="logo" className="h-14 px-2" />
@@ -34,9 +33,9 @@ const Header = () => {
       <div className=" flex col-span-1 ">
         <img src={BELL_ICON} alt="bell-icon" className="w-8 h-9 pt-4 mx-4" />
         <button className=" border py-2 px-4  bg-red-500 text-white rounded-lg">
-          <a href={<Login />}>
+         
           SignOut
-          </a>
+        
         </button>
       </div>
     </div>
