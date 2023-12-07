@@ -20,23 +20,23 @@ const Header = () => {
 
   // }
   useEffect(() => {
-    getSearchSuggestion();
+    const timer = setTimeout(() => getSearchSuggestion(), 200);
+    return () => {
+      clearTimeout(timer);
+    };
   }, [searchQuery]);
 
   const getSearchSuggestion = async () => {
-    const data = await fetch(YOUTUBE_SEARCH_SUGGESTION_API + searchQuery,{
-       method: "GET",
-       mode: "no-cors",
-      headers:{
-      'Access-Control-Allow-Headers':'http://localhost:3000'
-    },
-    })
-    
+    const data = await fetch(YOUTUBE_SEARCH_SUGGESTION_API + searchQuery, {
+      method: "GET",
+      mode: "no-cors",
+      headers: {
+        "Access-Control-Allow-Origin": "http://localhost:3000",
+      },
+    });
+    // const json = await data.json();
     console.log(data);
   };
-
-    //  const json = await data.json();
-    
 
   return (
     <div className="grid grid-flow-col m-2 shadow-lg">
@@ -69,6 +69,6 @@ const Header = () => {
       </div>
     </div>
   );
-  }
+};
 
 export default Header;
