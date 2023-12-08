@@ -15,6 +15,8 @@ import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import NewspaperIcon from "@mui/icons-material/Newspaper";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import LocalLibraryIcon from "@mui/icons-material/LocalLibrary";
+import PodcastsIcon from '@mui/icons-material/Podcasts';
+import YouTubeIcon from '@mui/icons-material/YouTube';
 
 const SideBar = () => {
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
@@ -117,11 +119,17 @@ const SideBar = () => {
           <li className="py-1 pl-2">Learning</li>
         </div>
         <li className="py-1">Fashion & Beauty</li>
-        <li className="py-1">Podcasts</li>
+        <div className="flex">
+          <li className="px-2"><PodcastsIcon /></li>
+        <li className="py-1 pl-2">Podcasts</li>
+        </div>
       </ul>
       <h1 className="text-2xl  mx-2 pt-2">More from youtube</h1>
       <ul className=" mx-2 text-md font-normal">
-        <li className="py-1">Youtube premium</li>
+        <div className="flex">
+          <li className="px-2"><YouTubeIcon /></li>
+        <li className="py-1 pl-2">Youtube premium</li>
+        </div>
         <li className="py-1">Youtube music</li>
         <li className="py-1">Youtube kids</li>
       </ul>
