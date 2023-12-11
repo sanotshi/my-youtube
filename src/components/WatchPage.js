@@ -2,12 +2,16 @@ import React, { useEffect, useState } from "react";
 import { closeMenu } from "../utilities/appSlice";
 import { useDispatch } from "react-redux";
 import { useSearchParams } from "react-router-dom";
-import {  GOOGLE_API_KEY, YOUTUBE_VIDEOS_API } from "../utilities/constants";
+import {   GOOGLE_API_KEY, YOUTUBE_CHANNEL_DATA_API } from "../utilities/constants";
  import ChannelData from "./ChannelData";
+import CommentContainer from "./CommentContainer";
 
 const WatchPage = () => {
+  const [videos, setVideos] = useState([]);
   const [searchParams] = useSearchParams();
   const searchParam = searchParams.get("v");
+  const channelId=videos.id;
+  console.log(channelId)
  
   const dispatch = useDispatch();
   
@@ -16,29 +20,20 @@ const WatchPage = () => {
     dispatch(closeMenu());
   }, []);
 
-  // useEffect(() => {
-  //   getVideos();
-  // }, []);
 
-  // const getVideos = async () => {
-  //   const data = await fetch("https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id="+searchParams.get("v")+"&key="+GOOGLE_API_KEY);
-  //   const json = await data.json();
-  //   // console.log(json.items);
-  //   setVideos(json.items);
-  // };
-//   useEffect(()=>{
-// videoDescriptionApi();
-//   },[]);
-//   const videoDescriptionApi=async()=>{
-//     const data=await fetch(YOUTUBE_CHANNEL_DESCRIPTION_API);
-//     const json=await data.json();
-//     console.log(json);
-//     setVideos(json)
-//   }
+useEffect(()=>{
+getChannelData();
+},[]);
+const getChannelData=async()=>{
+    const data=await fetch("https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=UC_x5XG1OV2P6uZZ5FSM9Ttw&key="+GOOGLE_API_KEY);
+    const json=await data.json();
+    console.log(json?.items[0]);
+    setVideos(json?.items[0])
+}
 
   return (
     <div className="p-3">
-      <iframe
+       <iframe
         width="1200"
         height="750"
         src={"https://www.youtube.com/embed/" + searchParam}
@@ -46,21 +41,16 @@ const WatchPage = () => {
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen
-      ></iframe>
+      ></iframe> 
+      
       <div>
-        <ChannelData />
+            {/* <ChannelData description={videos?.snippet}/>     */}
+        
         {/* <h1>{videos?.items?.snippet?.title}</h1> */}
-        <div className="flex justify-between">
-          {/* <h1>{videos[0]?.snippet?.channelTitle}</h1> */}
-           {/* <div className="">
-            <button>Like</button>
-            <button>DisLike</button>
-            <button>Share</button>
-            <button>Subscribe</button>
-            <button>More</button>
-          </div> */}
-        </div> 
-        {/* <h1>{videos[0]?.statistics?.viewCount}</h1> */}
+     
+      </div>
+      <div>
+        <CommentContainer />
       </div>
     </div>
   );
