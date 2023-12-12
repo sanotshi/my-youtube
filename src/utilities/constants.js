@@ -12,7 +12,7 @@ export const GOOGLE_API_KEY = "AIzaSyC0TC0t1A784zRdzNenRUoU8w4Gte1VFLA";
 // export const YOUTUBE_CHANNEL_DESCRIPTION_API="https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CtopicDetails%2Cstatus%2CcontentDetails%2Clocalizations%2Cstatistics%2CtopicDetails%2CbrandingSettings%2CcontentOwnerDetails&id=UCnJjcn5FrgrOEp5_N45ZLEQ&key="+GOOGLE_API_KEY;
 // UCnJjcn5FrgrOEp5_N45ZLEQ&key="+GOOGLE_API_KEY;
 
-
+export const LIVE_CHAT_COUNT=14;
 export const YOUTUBE_VIDEOS_API =
   "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=" +
   GOOGLE_API_KEY;
