@@ -22,13 +22,14 @@ const LiveChat = () => {
   });
   return (
     <>
-      <div className="ml-2 p-2 border border-black h-[750px] bg-zinc-200 rounded-lg overflow-y-scroll flex flex-col-reverse">
+      <div className="ml-2 p-2 border border-black h-[700px] md:h-[750px]  md:w-auto bg-zinc-200 rounded-lg overflow-y-scroll flex flex-col-reverse">
         {ChatMessage.map((chat, index) => (
           <ChatMessages key={index} name={chat.name} message={chat.message} />
         ))}
       </div>
+      <div>
       <form
-        className="px-2 ml-2"
+        className="px-1 md:px-2 ml-2"
         onSubmit={(e) => {
           e.preventDefault();
           dispatch(
@@ -42,7 +43,7 @@ const LiveChat = () => {
       >
         <input
           type="text"
-          className="p-1 border border-black w-96"
+          className="p-1 border border-black w-56 md:w-96"
           value={liveMessage}
           onChange={(e) => {
             setLiveMessage(e.target.value);
@@ -50,6 +51,7 @@ const LiveChat = () => {
       />
         <button className="px-2 mx-1 p-1 bg-green-100">Submit</button>
       </form>
+      </div>
     </>
   );
 };

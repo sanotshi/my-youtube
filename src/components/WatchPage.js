@@ -32,11 +32,11 @@ console.log(json.items[0]);
 
 
   return (
-    <div className="p-3 w-full">
+    <div className="ml-12 p- 2 md:p-2 ">
       <div className="flex ">
-        <div>
+        <div className="w-[900px] md:w-auto">
        <iframe
-        width="1350"
+        width="1300"
         height="750"
         src={"https://www.youtube.com/embed/" + searchParam+"?autoplay=1&mute=0&showinfo=0&rel=0"}
         title="YouTube video player"
@@ -45,12 +45,26 @@ console.log(json.items[0]);
         allowFullScreen
       ></iframe> 
       </div>
-      <div className="w-full">
+      <div className="">
            
      <LiveChat />
       </div>
       </div>
-      
+
+      <div className="flex justify-between w-[900px] md:w-[1300px]">
+        <div className="flex">
+        <img className="w-8 h-8 mx-2" src="https://pluspng.com/img-png/user-png-icon-download-icons-logos-emojis-users-2240.png" alt="user"/>
+          <button className="border border-gray-200 px-3 py-1 mx-1 rounded-3xl font-medium">Join</button>
+          <button className="border bg-black text-white px-3 py-1 mx-1 rounded-3xl ">Subscribe</button>
+        </div>
+        <form className="">
+        <button className="border py-2 px-3 bg-gray-200 rounded-3xl mx-1">Like</button>
+        <button className="border py-2 px-3 bg-gray-200 rounded-3xl mx-1">DisLike</button>
+        <button className="border py-2 px-3 bg-gray-200 rounded-3xl mx-1">Download</button>
+        <button className="border py-2 px-3 bg-gray-200 rounded-3xl mx-1">Share</button>
+        <button className="border py-2 px-3 bg-gray-200 rounded-3xl mx-1">More</button>
+        </form>
+      </div>
         <CommentContainer />
       
     </div>
